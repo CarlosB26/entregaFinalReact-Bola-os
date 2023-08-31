@@ -1,0 +1,50 @@
+[
+    {
+        "id": "1",
+        "nombre": "Maquina",
+        "precio": 138000,
+        "stock" : 10,
+        "category": "hombre",
+        "imagen": "https://i.postimg.cc/8CLpKhBz/maquina.webp"
+    },
+    {
+        "id": "2",
+        "nombre": "Sombrilla",
+        "precio": 200000,
+        "stock" : 9,
+        "category": "variado",
+        "imagen": "https://i.postimg.cc/JzZCMRyT/sombrilla.webp"
+    },
+    {
+        "id": "3",
+        "nombre": "Cigarrera",
+        "precio": 148000,
+        "stock" : 11,
+        "category": "hombre",
+        "imagen": "https://i.postimg.cc/SNXp16mb/cigarrera.webp"
+    },
+    {
+        "id": "4",
+        "nombre": "Camara espia",
+        "precio": 85000,
+        "stock" : 4,
+        "category": "variado",
+        "imagen": "https://i.postimg.cc/tJcGCTtc/camara-Espia.webp"
+    },
+    {
+        "id": "5",
+        "nombre": "Encendedor carta",
+        "precio": 25000,
+        "stock" : 3,
+        "category": "hombre",
+        "imagen": "https://i.postimg.cc/VL3PxJNr/encendedor-Carta.webp"
+    },
+    {
+        "id": "6",
+        "nombre": "Encendedor electrico",
+        "precio": 35000,
+        "stock" : 4,
+        "category": "mujer",
+        "imagen": "https://i.postimg.cc/zD2rktZk/encendedor-Electrico.webp"
+    }
+]
