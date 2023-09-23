@@ -1,33 +1,48 @@
+
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import Container from 'react-bootstrap/Container';
-import data from '../data/products.json';
 import { ItemList } from "./ItemList";
+import Container from 'react-bootstrap/Container';
+import { getFirestore, getDocs, collection, query, where } from "firebase/firestore"
 
-
-export const ItemListContainer = (props) => {
+export const ItemListContainer = props => {
     const [products, setProducts] = useState([]);
-
+    const [loading, setLoading] = useState(true);
     const { id } = useParams();
-
     console.log(id)
-
     useEffect(() => {
-        const promise = new Promise((resolve, reject) => {
-            setTimeout(() => resolve(data), 2000)
-        });
-        promise.then((data) => {
-            if (!id) {
-                setProducts(data);
-            } else {
-                const productFiltered = data.filter(
-                    (product) => product.category === id
-                );
-                setProducts(productFiltered);
-            }
-        });
-    }, []);
+        const db= getFirestore()
 
+        const refCollection = id
+        ? query (collection(db, "productos"), where("category", "==", id))
+        : collection(db , "productos")
+
+
+        getDocs(refCollection)
+            .then(snapshot => {
+                if (snapshot.size === 0) console.log("no results")
+                else{
+                if(id){
+                    setProducts(
+                        snapshot.docs.map(doc => {
+                            return { id: doc.id, ...doc.data() }
+                        })
+                    )
+                } else {
+                    setProducts(
+                        snapshot.docs.map(doc => {
+                            return { id: doc.id, ...doc.data() }
+                        })
+                    )
+                }
+                }
+            })
+            .finally(() =>{
+                setLoading(false)
+            })
+    }, [id])
+
+    if(loading) return <div>Loading...</div>
 
     return (<Container className='mt-4'>
         <h1>{props.greeting}</h1>

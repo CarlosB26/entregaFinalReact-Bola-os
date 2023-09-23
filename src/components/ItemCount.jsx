@@ -1,9 +1,10 @@
 import { useState } from "react";
+import Button from 'react-bootstrap/Button';
 
-export const ItemCount = () => {
-    const stock = 4;
 
-    const [count, setCount] = useState(0);
+export const ItemCount = ({onAdd, stock}) => {
+
+    const [count, setCount] = useState(1);
 
     const handleDecreaseCount = () => {
         if (count > 1) {
@@ -17,16 +18,13 @@ export const ItemCount = () => {
         }
     };
 
-    const onAdd = () => {
-            alert("Se agregaron " + count +  " productos");
-    };
 
     return (
         <div className="itemCount">
             <span onClick={handleDecreaseCount}>-</span>
             <span>{count}</span>
             <span onClick={handleIncreaseCount}>+</span>
-            <button onClick={onAdd}>Agregar al Carrito</button>
+            <Button id="buttonBuy" onClick={() => onAdd(count)}>buy</Button>
         </div>
     )
 }

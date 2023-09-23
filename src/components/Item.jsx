@@ -10,7 +10,6 @@ export const Item = ({product}) => (
       <Card.Text>
         <span>$</span>{product.precio}
       </Card.Text>
-      <Button variant="primary" id="buttonBuy">Buy</Button>
       <Button variant="primary"  id="buttonTT">See TT</Button>
       <Link to={`/item/${product.id}`}>
         <Button variant="primary" id="buttonDetails">Details</Button>
