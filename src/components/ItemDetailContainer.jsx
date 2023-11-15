@@ -28,7 +28,7 @@ export const ItemDetailContainer = (props) => {
 
     if(loading) return <div>Loading...</div>;
 
-    return (<Container className='mt-4'>
+    return (<Container className='mt-4' style={{ backgroundColor: 'black'}}>
                 <h1>Detalles del producto</h1>
                 <ItemDetail product={product}/>
             </Container>

@@ -7,9 +7,9 @@ export const CartWidget = () => {
     const {totalWidget} = useContext(CartContext)
 
     return (
-    <Link to="/cart">
+    <Link to="/cart" id="linkWid">
         <div id="cartNum">
-            <img src={cart} alt="Carrito" id="cartLogo"/> <span>{totalWidget}</span>
+            <img src={cart} alt="Carrito" id="cartLogo"/> <span id="totWid">{totalWidget}</span>
         </div>
     </Link>
     )

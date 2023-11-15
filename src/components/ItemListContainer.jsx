@@ -9,9 +9,9 @@ export const ItemListContainer = props => {
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(true);
     const { id } = useParams();
-    console.log(id)
+    
     useEffect(() => {
-        const db= getFirestore()
+        const db= getFirestore();
 
         const refCollection = id
         ? query (collection(db, "productos"), where("category", "==", id))
@@ -44,7 +44,7 @@ export const ItemListContainer = props => {
 
     if(loading) return <div>Loading...</div>
 
-    return (<Container className='mt-4'>
+    return (<Container className='topMargin'>
         <h1>{props.greeting}</h1>
         <div className="d-flex flex-column align-items-center">
             <ItemList products={products} />

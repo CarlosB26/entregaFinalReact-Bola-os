@@ -2,18 +2,20 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.css';
 import { ItemListContainer } from './components/ItemListContainer';
 import { ItemDetailContainer } from './components/ItemDetailContainer';
-import { NavBar } from './components/NavComponent';
+import AppNavbar from './components/NavComponent';
 import { Cart } from './components/Cart';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { CartProvider } from './contexts/CartContext';
+import InfoContainer from './components/InfoComponent';
 
 function App() {
   return (
     <CartProvider>
       <BrowserRouter>
-        <NavBar />
+        <InfoContainer />
+        <AppNavbar />
         <Routes>
-          <Route
+          <Route 
             path="/"
             element={<ItemListContainer greeting="Hi!" />}
           />
